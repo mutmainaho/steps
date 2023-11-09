@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Counter from "./challenge";
 
 const messages = [
   "Learn React ⚛️",
@@ -6,7 +7,16 @@ const messages = [
   "Invest your new income 🤑",
 ];
 
-function App() {
+export default function App() {
+  return (
+    <div>
+      <Steps />
+      <Counter />
+    </div>
+  );
+}
+
+function Steps() {
   // const step = 1;
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
@@ -20,7 +30,7 @@ function App() {
     if (step < 3) setStep((s) => s + 1);
   }
   return (
-    <>
+    <div>
       <button className="close" onClick={() => setIsOpen((is) => !is)}>
         &times;
       </button>
@@ -50,8 +60,6 @@ function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
-
-export default App;
